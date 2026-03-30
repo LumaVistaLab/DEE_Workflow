@@ -1,0 +1,10 @@
+Global Progress Monitor - (C) LumaVista
+---------------------------------------
+* Updated with the last finished chunk.
+
+Global Progress: XXX%
+Global Progress: Done.
+Time Elapsed: HH:MM:SS
+
+Encoder Start Time: YYYY/MM/DD HH:MM:SS
+Estimated End Time: YYYY/MM/DD HH:MM:SS
