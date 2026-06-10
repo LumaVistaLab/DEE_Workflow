@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<job_config>
+  <input>
+    <video>
+      <mov_sidecar version="1">
+        <track_id>-1</track_id>    <!-- integer -->
+        <mov_file_name>MOV_FILE_NAME</mov_file_name>    <!-- string -->
+        <md_file_name>MD_FILE_NAME</md_file_name>    <!-- string -->
+        <storage>
+          <local_multi_path>
+            <path>PATH</path>    <!-- string -->
+          </local_multi_path>
+        </storage>
+      </mov_sidecar>
+      <yuv420 version="1">
+        <bit_depth>10</bit_depth>    <!-- fixed value -->
+        <width>3840</width>    <!-- integer -->
+        <height>2160</height>    <!-- integer -->
+        <frame_rate>24</frame_rate>    <!-- One of: 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60 -->
+        <file_name>FILE_NAME</file_name>    <!-- string -->
+        <storage>
+          <local_multi_path>
+            <path>PATH</path>    <!-- string -->
+          </local_multi_path>
+        </storage>
+      </yuv420>
+      <manifest version="1">
+        <file_name>FILE_NAME</file_name>    <!-- string -->
+        <storage>
+          <local_multi_path>
+            <path>PATH</path>    <!-- string -->
+          </local_multi_path>
+        </storage>
+      </manifest>
+    </video>
+  </input>
+  <filter>
+    <video>
+      <dv_mezz_to_dv_profile_7_el version="1">
+        <el_type>auto</el_type>    <!-- One of: auto, fel, mel -->
+        <max_scene_frames>240</max_scene_frames>    <!-- integer: from 1 to 256 -->
+      </dv_mezz_to_dv_profile_7_el>
+    </video>
+  </filter>
+  <output>
+    <yuv420_rpu version="1">
+      <yuv_file_name>YUV_FILE_NAME</yuv_file_name>    <!-- string -->
+      <rpu_file_name>RPU_FILE_NAME</rpu_file_name>    <!-- string -->
+      <storage>
+        <local_multi_path>
+          <path>PATH</path>    <!-- string -->
+        </local_multi_path>
+      </storage>
+    </yuv420_rpu>
+    <manifest version="1">
+      <file_name>FILE_NAME</file_name>    <!-- string -->
+      <storage>
+        <local_multi_path>
+          <path>PATH</path>    <!-- string -->
+        </local_multi_path>
+      </storage>
+    </manifest>
+  </output>
+  <misc>
+    <temp_dir>
+      <clean_temp>true</clean_temp>
+      <path>PATH</path>
+    </temp_dir>
+  </misc>
+</job_config>

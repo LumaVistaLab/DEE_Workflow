@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<job_config>
+  <input>
+    <video>
+      <yuv420 version="1">
+        <bit_depth>10</bit_depth>    <!-- fixed value -->
+        <width>1920</width>    <!-- integer -->
+        <height>1080</height>    <!-- integer -->
+        <frame_rate>24</frame_rate>    <!-- One of: 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60 -->
+        <file_name>FILE_NAME</file_name>    <!-- string -->
+        <storage>
+          <local_multi_path>
+            <path>PATH</path>    <!-- string -->
+          </local_multi_path>
+        </storage>
+      </yuv420>
+      <manifest version="1">
+        <file_name>FILE_NAME</file_name>    <!-- string -->
+        <storage>
+          <local_multi_path>
+            <path>PATH</path>    <!-- string -->
+          </local_multi_path>
+        </storage>
+      </manifest>
+    </video>
+  </input>
+  <filter>
+    <video>
+      <encode_to_hevc version="4">
+        <encode_type>dv_profile_7_el</encode_type>    <!-- fixed value -->
+        <start>0</start>    <!-- string -->
+        <end>0</end>    <!-- string -->
+        <target_width>0</target_width>    <!-- integer list -->
+        <target_height>0</target_height>    <!-- integer list -->
+        <data_rate>14000</data_rate>    <!-- integer list -->
+        <max_vbv_data_rate>14000</max_vbv_data_rate>    <!-- integer list -->
+        <vbv_buffer_size>16500</vbv_buffer_size>    <!-- integer list -->
+        <encode_pass_num>2</encode_pass_num>    <!-- integer -->
+        <scaling>
+          <base>
+            <source_crop_top>0</source_crop_top>    <!-- integer -->
+            <source_crop_bottom>0</source_crop_bottom>    <!-- integer -->
+            <source_crop_left>0</source_crop_left>    <!-- integer -->
+            <source_crop_right>0</source_crop_right>    <!-- integer -->
+          </base>
+        </scaling>
+        <hevc_enc>
+          <x265>
+            <preset>slower</preset>    <!-- One of: placebo, veryslow, slower, slow, medium, fast, faster, veryfast, superfast, ultrafast -->
+            <tune>none</tune>    <!-- One of: none, psnr, ssim, grain, fastdecode, zerolatency -->
+            <open_gop>false</open_gop>    <!-- boolean: true or false -->
+            <max_intra_period>24</max_intra_period>    <!-- Value should represent 1 second of video. -->
+            <min_intra_period>24</min_intra_period>    <!-- Value should represent 1 second of video. -->
+            <intra_refresh>false</intra_refresh>    <!-- boolean: true or false -->
+            <max_bframes>3</max_bframes>    <!-- integer: from 0 to 16 -->
+            <scenecut>0</scenecut>    <!-- integer -->
+            <scenecut_bias>0</scenecut_bias>    <!-- integer: from 0 to 100 -->
+            <lookahead_frames>24</lookahead_frames>    <!-- Value should represent 1 second of video. -->
+            <concatenation_flag>false</concatenation_flag>    <!-- boolean: true or false -->
+            <info>true</info>    <!-- boolean: true or false -->
+            <frame_threads>0</frame_threads>    <!-- integer: from 0 to 16 -->
+            <nr_inter>400</nr_inter>    <!-- integer: from 0 to 2000 -->
+            <nr_intra>100</nr_intra>    <!-- integer: from 0 to 2000 -->
+            <cbqpoffs>0</cbqpoffs>    <!-- integer: from -12 to 12 -->
+            <crqpoffs>0</crqpoffs>    <!-- integer: from -12 to 12 -->
+            <min_cu_size>8</min_cu_size>    <!-- One of: 8, 16, 32 -->
+            <max_cu_size>64</max_cu_size>    <!-- One of: 16, 32, 64 -->
+            <qg_size>32</qg_size>    <!-- One of: 16, 32, 64 -->
+            <rc_grain>false</rc_grain>    <!-- boolean: true or false -->
+            <level_idc>5.1</level_idc>    <!-- fixed value -->
+            <psy_rd>5.0</psy_rd>    <!-- float: from 0 to 5 -->
+            <wpp>true</wpp>    <!-- boolean: true or false -->
+            <profile>main10</profile>    <!-- fixed value -->
+            <!-- <param>PARAM</param> -->     <!-- Allows the user to set x265 native parameters. Syntax: id=val:id=val -->
+          </x265>
+        </hevc_enc>
+      </encode_to_hevc>
+    </video>
+  </filter>
+  <output>
+    <hevc version="1">
+      <file_name>FILE_NAME</file_name>    <!-- string list -->
+      <storage>
+        <local_multi_path>
+          <path>PATH</path>    <!-- string -->
+        </local_multi_path>
+      </storage>
+    </hevc>
+  </output>
+  <misc>
+    <temp_dir>
+      <clean_temp>true</clean_temp>
+      <path>PATH</path>
+    </temp_dir>
+  </misc>
+</job_config>

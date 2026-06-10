@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<job_config>
+  <input>
+    <video>
+      <hevc version="1">
+        <frame_rate>24</frame_rate>    <!-- One of: unspecified, 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60 -->
+        <dv_profile>7_el</dv_profile>    <!-- Enhancement layer of profile 7. -->
+        <file_name>EL_IN_FILE_NAME</file_name>    <!-- string -->
+        <storage>
+          <local>
+            <path>PATH</path>    <!-- string -->
+          </local>
+        </storage>
+      </hevc>
+      <hevc version="1">
+        <frame_rate>24</frame_rate>    <!-- One of: unspecified, 23.976, 24, 25, 29.97, 30, 48, 50, 59.94, 60 -->
+        <dv_profile>7_bl</dv_profile>    <!-- Base layer of profile 7. -->
+        <file_name>BL_IN_FILE_NAME</file_name>    <!-- string -->
+        <storage>
+          <local>
+            <path>PATH</path>    <!-- string -->
+          </local>
+        </storage>
+      </hevc>
+    </video>
+  </input>
+  <filter>
+    <video>
+      <dv_md_postproc version="1">
+        <source_width>0</source_width>    <!-- integer -->
+        <source_height>0</source_height>    <!-- integer -->
+        <target_width>0</target_width>    <!-- integer -->
+        <target_height>0</target_height>    <!-- integer -->
+        <target_active_area_offset_top>-1</target_active_area_offset_top>    <!-- integer -->
+        <target_active_area_offset_bottom>-1</target_active_area_offset_bottom>    <!-- integer -->
+        <target_active_area_offset_left>-1</target_active_area_offset_left>    <!-- integer -->
+        <target_active_area_offset_right>-1</target_active_area_offset_right>    <!-- integer -->
+        <max_cll>-1</max_cll>    <!-- integer: from -1 to 65535 -->
+        <max_fall>-1</max_fall>    <!-- integer: from -1 to 65535 -->
+        <level1_filter>auto</level1_filter>    <!-- One of: auto, none, sliding -->
+      </dv_md_postproc>
+    </video>
+  </filter>
+  <output>
+    <hevc version="1">
+      <file_name>EL_OUT_FILE_NAME</file_name>    <!-- The first hevc output is the EL. -->
+      <storage>
+        <local>
+          <path>PATH</path>    <!-- string -->
+        </local>
+      </storage>
+    </hevc>
+    <hevc version="1">
+      <file_name>BL_OUT_FILE_NAME</file_name>    <!-- The second hevc output is the BL. -->
+      <storage>
+        <local>
+          <path>PATH</path>    <!-- string -->
+        </local>
+      </storage>
+    </hevc>
+  </output>
+  <misc>
+    <temp_dir>
+      <clean_temp>true</clean_temp>
+      <path>PATH</path>
+    </temp_dir>
+  </misc>
+</job_config>

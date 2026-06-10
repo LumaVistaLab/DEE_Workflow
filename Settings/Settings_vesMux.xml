@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<job_config>
+  <input>
+    <video>
+      <bl_el_rpu version="1">
+        <dv_profile>7</dv_profile>    <!-- fixed value -->
+        <rpu_file_name>RPU_FILE_NAME</rpu_file_name>    <!-- string -->
+        <el_file_name>EL_FILE_NAME</el_file_name>    <!-- string -->
+        <storage>
+          <local_multi_path>
+            <path>PATH</path>    <!-- string -->
+          </local_multi_path>
+        </storage>
+      </bl_el_rpu>
+    </video>
+  </input>
+  <filter>
+    <video>
+      <dv_ves_mux version="1"/>
+    </video>
+  </filter>
+  <output>
+    <hevc version="1">
+      <file_name>FILE_NAME</file_name>    <!-- string list -->
+      <storage>
+        <local_multi_path>
+          <path>PATH</path>    <!-- string -->
+        </local_multi_path>
+      </storage>
+    </hevc>
+  </output>
+  <misc>
+    <temp_dir>
+      <clean_temp>true</clean_temp>
+      <path>PATH</path>
+    </temp_dir>
+  </misc>
+</job_config>
