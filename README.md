@@ -1,4 +1,4 @@
-# DEE_Workflow
+# Dolby Encoding Engine Workflow
 
 Language: English | [简体中文](README_zh-CN.md)
 
